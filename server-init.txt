@@ -11,3 +11,57 @@ cd D:\User\Escritorio
 PS D:\User\Escritorio> wsl
 jpalacio@JPALACIO:/mnt/d/User/Escritorio$ cd devstagram
 sail npm run dev
+
+Para simplificar el uso de Laravel Sail y permitirte usar comandos cortos como `sail up` o `sail down`, puedes crear un alias en tu terminal. Aquí te explico cómo hacerlo para diferentes shells:
+
+### 1. Agregar Alias en `.bashrc` o `.zshrc`
+
+Dependiendo del shell que uses (bash o zsh), debes agregar un alias en tu archivo de configuración del shell.
+
+#### Para Bash (`.bashrc`)
+
+Si usas Bash, agrega lo siguiente al final de tu archivo `~/.bashrc`:
+
+alias sail='bash vendor/bin/sail'
+
+Después, recarga tu configuración de Bash:
+
+source ~/.bashrc
+
+#### Para Zsh (`.zshrc`)
+
+Si usas Zsh, agrega lo siguiente al final de tu archivo `~/.zshrc`:
+alias sail='bash vendor/bin/sail'
+
+Después, recarga tu configuración de Zsh:
+source ~/.zshrc
+
+### 2. Uso de los Alias
+Una vez configurado el alias, puedes usar `sail` en lugar del comando completo `./vendor/bin/sail`. Aquí hay algunos ejemplos:
+- Para iniciar los servicios de Sail:
+  sail up
+
+- Para detener los servicios de Sail:
+  sail down
+
+- Para ejecutar otros comandos de Sail, como migraciones o instalación de dependencias:
+  sail artisan migrate
+  sail npm install
+
+### Nota
+
+Si prefieres no modificar los archivos de configuración del shell, también puedes ejecutar el alias directamente en tu terminal antes de cada sesión:
+
+alias sail='bash vendor/bin/sail'
+Esto funcionará para la sesión actual de la terminal, pero tendrás que volver a definir el alias cada vez que abras una nueva sesión de terminal.
+
+### Verificación
+
+Para asegurarte de que el alias se configuró correctamente, puedes ejecutar:
+alias sail
+
+
+Esto debería mostrar algo similar a:
+alias sail='bash vendor/bin/sail'
+
+Con esto, ya deberías poder usar los comandos `sail up` y `sail down` de manera simplificada.
