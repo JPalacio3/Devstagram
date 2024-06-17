@@ -1,0 +1,13 @@
+* arrancar el proyecto (Powershell) :
+1* Debe estar corriendo el servidor de Docker:
+cd D:\User\Escritorio
+PS D:\User\Escritorio> wsl
+jpalacio@JPALACIO:/mnt/d/User/Escritorio$ cd devstagram
+jpalacio@JPALACIO:/mnt/d/User/Escritorio/devstagram$ sail up
+
+2* En otra terminal (Powershell) :
+Para arrancar el entorno de desarrollo con la compilación de Tailwind:
+cd D:\User\Escritorio
+PS D:\User\Escritorio> wsl
+jpalacio@JPALACIO:/mnt/d/User/Escritorio$ cd devstagram
+sail npm run dev
