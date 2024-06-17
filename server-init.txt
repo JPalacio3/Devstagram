@@ -60,7 +60,6 @@ Esto funcionará para la sesión actual de la terminal, pero tendrás que volver
 Para asegurarte de que el alias se configuró correctamente, puedes ejecutar:
 alias sail
 
-
 Esto debería mostrar algo similar a:
 alias sail='bash vendor/bin/sail'
 
