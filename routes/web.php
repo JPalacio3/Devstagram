@@ -8,6 +8,8 @@ Route::get('/', function () {
     return view('principal');
 });
 
-// Crear Cuenta
+// Ruta para mostrar el formulario de registro
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
-Route::post('/register', [RegisterController::class, 'store']);
+
+// Ruta para procesar el formulario de registro
+Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
