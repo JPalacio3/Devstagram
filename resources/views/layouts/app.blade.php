@@ -24,7 +24,7 @@
                 href="{{route('login')}}">
                 Hola:
                 <span class="font-normal">
-                    {{auth()->user()->username}}
+                    {{$user->username}}
                 </span>
             </a>
             <form action="{{route('logout')}}" method="POST">
