@@ -4,8 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Devstagram - @yield('titulo')</title>
-    @vite('resources/css/app.css')
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @stack('styles')
+    <title>DevStagram - @yield('titulo')</title>
 </head>
 
 <body class="bg-gray-100">
@@ -20,17 +21,27 @@
     {{-- En caso de estar autenticado --}}
         @auth
         <nav class="flex gap-4 items-center">
-            <a class="font-bold  text-gray-600 text-xl"
-                href="{{route('login')}}">
-                Hola:
+            <a href="{{route('posts.create')}}"
+            class="flex items-center gap-10 bg-white border p-2 text-gray-600 rounded text-sm uppercase font-bold cursor-pointer hover:border-l-indigo-800 hover:bg-gray-100 "
+            >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+            <path d="M12 9a3.75 3.75 0 1 0 0 7.5A3.75 3.75 0 0 0 12 9Z" />
+            <path fill-rule="evenodd" d="M9.344 3.071a49.52 49.52 0 0 1 5.312 0c.967.052 1.83.585 2.332 1.39l.821 1.317c.24.383.645.643 1.11.71.386.054.77.113 1.152.177 1.432.239 2.429 1.493 2.429 2.909V18a3 3 0 0 1-3 3h-15a3 3 0 0 1-3-3V9.574c0-1.416.997-2.67 2.429-2.909.382-.064.766-.123 1.151-.178a1.56 1.56 0 0 0 1.11-.71l.822-1.315a2.942 2.942 0 0 1 2.332-1.39ZM6.75 12.75a5.25 5.25 0 1 1 10.5 0 5.25 5.25 0 0 1-10.5 0Zm12-1.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z" clip-rule="evenodd" /></svg>
+                Crear
+            </a>
+
+            <a class="font-bold hover:rounded-md p-2 text-gray-600 text-xl hover:bg-gray-100"
+                href="{{route('posts.index', auth()->user()->username)}}">
+                    Hola:
                 <span class="font-normal">
-                    {{$user->username}}
+                    {{auth()->user()->username}}
                 </span>
             </a>
-            <form action="{{route('logout')}}" method="POST">
+
+            <form method="POST" action="{{ route('logout') }}">
                 @csrf
-                <button type="submit" class="font-bold uppercase text-gray-600 text-sm">
-                        Cerrar Sesión
+                <button type="submit" class="font-bold hover:rounded-md p-2 text-gray-600 text-xl hover:bg-gray-100">
+                    Cerrar Sesión
                 </button>
             </form>
         </nav>
@@ -50,7 +61,7 @@
     <h2 class="font-black text-center text-3xl mb-20">
         @yield('titulo')
     </h2>
-    @yield('contenido')
+        @yield('contenido')
 </main>
 
 <footer class="text-center p-5 text-gray-500 font-bold uppercase mt-15">

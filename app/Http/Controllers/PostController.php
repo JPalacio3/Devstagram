@@ -7,14 +7,16 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    // Proteger la ruta del muro, para poder acceder al muro el usuario debe estar autenticado
-
-
     //
     public function index(User $user)
     {
         return view('dashboard', [
             'user' => $user
         ]);
+    }
+
+    public function create()
+    {
+        return view('posts.create');
     }
 }

@@ -42,6 +42,6 @@ class RegisterController extends Controller
         ]);
 
         // Redirigir con mensaje de éxito
-        return redirect()->route('posts.index');
+        return redirect()->route('posts.index', $request->username);
     }
 }
