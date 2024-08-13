@@ -25,5 +25,13 @@
     "dependencies": {
         "composer": "^4.1.0",
         "dropzone": "^6.0.0-beta.2"
-    }
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/JPalacio3/Devstagram.git"
+    },
+    "bugs": {
+        "url": "https://github.com/JPalacio3/Devstagram/issues"
+    },
+    "homepage": "https://github.com/JPalacio3/Devstagram#readme"
 }
